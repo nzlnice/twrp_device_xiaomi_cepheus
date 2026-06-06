@@ -63,6 +63,7 @@ TARGET_COPY_OUT_VENDOR := vendor
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Partitions - Dynamic
+RECOVERY_BINARY_SDO_DYNAMIC_PARTITIONS := true
 BOARD_SUPER_PARTITION_GROUPS := crux_dynamic_partitions
 BOARD_CRUX_DYNAMIC_PARTITIONS_PARTITION_LIST := system vendor system_ext odm product
 BOARD_SUPER_PARTITION_SIZE := 6979321856
@@ -123,7 +124,8 @@ TARGET_RECOVERY_DEVICE_MODULES += \
     libion \
     libxml2 \
     vendor.display.config@1.0 \
-    vendor.display.config@2.0
+    vendor.display.config@2.0 \
+    fastbootd
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
