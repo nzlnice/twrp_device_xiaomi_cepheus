@@ -5,7 +5,7 @@
 #
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := cepheus
+TARGET_OTA_ASSERT_DEVICE := crux
 
 # Crypto
 PRODUCT_PACKAGES += \

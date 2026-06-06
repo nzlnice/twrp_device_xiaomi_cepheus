@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/xiaomi/cepheus
+DEVICE_PATH := device/xiaomi/crux
 
 # Allow building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -33,15 +33,15 @@ TARGET_NO_BOOTLOADER := true
 TARGET_BOARD_PLATFORM := msmnile
 
 # Kernel
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.usbcontroller=a600000.dwc3 service_locator.enable=1 lpm_levels.sleep_disabled=1 loop.max_part=7 kpti=off
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.usbcontroller=a600000.dwc3 service_locator.enable=1 lpm_levels.sleep_disabled=1 loop.max_part=7
 BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0xa90000 androidboot.console=ttyMSM0
+BOARD_KERNEL_CMDLINE += androidboot.memcg=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 swiotlb=2048
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_CMDLINE += androidboot.boot_devices=soc/1d84000.ufshc
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 BOARD_BOOT_HEADER_VERSION := 1
-BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --header_version $(BOARD_BOOT_HEADER_VERSION)
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
 BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
@@ -63,15 +63,14 @@ TARGET_COPY_OUT_VENDOR := vendor
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Partitions - Dynamic
-BOARD_SUPER_PARTITION_GROUPS := cepheus_dynamic_partitions
-BOARD_CEPHEUS_DYNAMIC_PARTITIONS_PARTITION_LIST := system vendor system_ext odm product
-BOARD_SUPER_PARTITION_SIZE := 5368709120
+BOARD_SUPER_PARTITION_GROUPS := crux_dynamic_partitions
+BOARD_CRUX_DYNAMIC_PARTITIONS_PARTITION_LIST := system vendor system_ext odm product
+BOARD_SUPER_PARTITION_SIZE := 6979321856
 BOARD_SUPER_PARTITION_METADATA_DEVICE := system
 BOARD_SUPER_PARTITION_BLOCK_DEVICES := system vendor
-BOARD_SUPER_PARTITION_SYSTEM_DEVICE_SIZE := 3758096384
-BOARD_SUPER_PARTITION_VENDOR_DEVICE_SIZE := 1610612736
-BOARD_CEPHEUS_DYNAMIC_PARTITIONS_SIZE := 5364514816
-
+BOARD_SUPER_PARTITION_SYSTEM_DEVICE_SIZE := 4831838208
+BOARD_SUPER_PARTITION_VENDOR_DEVICE_SIZE := 2147483648
+BOARD_CRUX_DYNAMIC_PARTITIONS_SIZE := 6975127552
 # Properties
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 

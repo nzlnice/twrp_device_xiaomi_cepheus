@@ -11,12 +11,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 # Inherit TWRP common configuration
 $(call inherit-product, vendor/twrp/config/common.mk)
 
-# Inherit from cepheus device
-$(call inherit-product, device/xiaomi/cepheus/device.mk)
+# Inherit from crux device
+$(call inherit-product, device/xiaomi/crux/device.mk)
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_DEVICE := cepheus
-PRODUCT_NAME := twrp_cepheus
+PRODUCT_DEVICE := crux
+PRODUCT_NAME := twrp_crux
 PRODUCT_BRAND := Xiaomi
-PRODUCT_MODEL := Mi 9
+PRODUCT_MODEL := Mi 9 Pro 5G
 PRODUCT_MANUFACTURER := Xiaomi
